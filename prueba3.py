@@ -4,7 +4,15 @@ from firebase_admin import credentials, db
 from datetime import datetime
 
 # === CONFIGURACIÓN FIREBASE ===
-cred = credentials.Certificate("recicla.json")
+import json, os
+from io import StringIO
+
+firebase_json = os.getenv("FIREBASE_JSON")
+if not firebase_json:
+    raise ValueError("FIREBASE_JSON no está configurado en las variables de entorno")
+
+cred = credentials.Certificate(json.load(StringIO(firebase_json)))
+
 firebase_admin.initialize_app(cred, {
     'databaseURL': 'https://recicla-4ca43-default-rtdb.firebaseio.com/'
 })
