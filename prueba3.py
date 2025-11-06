@@ -20,7 +20,7 @@ firebase_admin.initialize_app(cred, {
 
 app = Flask(__name__) 
 
-CORS(app, resources={r"/*": {"origins": "*"}}, supports_credentials=True)
+CORS(app, origins="*", methods=["GET", "POST", "PUT", "DELETE", "OPTIONS"], allow_headers="*", supports_credentials=True)
 
 #----------------------------------------------------------------------------------
 # trabajo
