@@ -1,4 +1,5 @@
 from flask import Flask, request, jsonify
+from flask_cors import CORS
 import firebase_admin
 from firebase_admin import credentials, db
 from datetime import datetime
@@ -18,6 +19,8 @@ firebase_admin.initialize_app(cred, {
 })
 
 app = Flask(__name__) 
+
+CORS(app, resources={r"/*": {"origins": "*"}}, supports_credentials=True)
 
 #----------------------------------------------------------------------------------
 # trabajo
