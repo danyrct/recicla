@@ -8,7 +8,7 @@ WORKDIR /app
 COPY . /app
 
 # Instalar dependencias
-RUN pip install --no-cache-dir flask firebase-admin gunicorn
+RUN pip install --no-cache-dir flask flask_cors firebase-admin gunicorn
 
 # Exponer el puerto que usará Flask
 EXPOSE 5000
