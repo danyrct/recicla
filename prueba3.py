@@ -50,7 +50,7 @@ def consulta(user_id):
         "total": total
     }), 200
 
-@app.route('/sumar/<user_id>/<categoria>', methods=['GET'])
+@app.route('/sumar/<user_id>/<categoria>', methods=['GET', 'POST'])
 def sumar(user_id, categoria):
     # Verificar que la categoría sea válida
     if categoria not in ["lata", "vidrio", "tetra"]:
@@ -219,3 +219,4 @@ def top_total():
 # === INICIO DEL SERVIDOR ===
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port=5000, debug=True)
+
